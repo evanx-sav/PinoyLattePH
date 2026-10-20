@@ -1,2 +1,133 @@
-# PinoyLattePH
-webpage
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinoy Latte PH | Banana-Pandan Latte</title>
+<style>
+:root{--brown:#4b2e1e;--cream:#fff8ec;--yellow:#f5c542;--green:#3f7d4e;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Arial,sans-serif}
+body{background:var(--cream);color:var(--brown)}
+header{background:var(--brown);color:#fff;padding:14px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:12px}
+.logo-img{width:92px;height:92px;object-fit:contain;border-radius:50%;background-weight:100;background:#D9F2D0;}
+.logo{font-size:2.35rem;font-weight:800}
+.logo span{color:var(--yellow)}
+nav a{color:#fff;text-decoration:none;margin-left:22px;font-weight:600}
+nav a:hover{color:var(--yellow)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:70px 6%;background:linear-gradient(135deg,#fff8ec,#ffefc9)}
+.hero h1{font-size:3rem;line-height:1.1}
+.hero h1 span{color:var(--green)}
+.hero p{margin:18px 0 28px;font-size:1.1rem;max-width:520px}
+.btn{display:inline-block;background:var(--yellow);color:var(--brown);padding:14px 28px;border-radius:30px;font-weight:800;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.btn.secondary{background:transparent;border:2px solid var(--brown);margin-left:12px}
+.product-card{background:#fff;border-radius:24px;padding:26px;text-align:center;box-shadow:0 18px 40px rgba(75,46,30,.15)}
+.product-img{width:50%;max-height:350px;object-fit:cover;border-radius:16px;margin-bottom:16px}
+.price{font-size:1.6rem;font-weight:800;color:var(--green)}
+section{padding:80px 6%}
+h2{font-size:2rem;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:34px}
+.card{background:#FBE0BB;padding:28px;border-radius:18px;box-shadow:0 10px 25px rgba(75,46,30,.08)}
+.card h3{margin-bottom:10px}
+.image-section .card{
+  color: var(--brown);
+}
+.badge{display:inline-block;background:var(--green);color:#fff;padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:700;margin-bottom:12px}
+.image-section{position:relative;color:#fff;background-size:cover;background-position:center;background-repeat:no-repeat}
+.image-section::before{content:"";position:absolute;inset:0;background:rgba(30,18,10,.62)}
+.image-section .content{position:relative;z-index:2;max-width:820px}
+.story{background-image:url("story-background.jpg")}
+.sustainability{background-image:url("sustainability-background.jpg")}
+.image-section h2{color:var(--yellow)}
+.image-section p{margin-top:14px;line-height:1.75}
+.cta{background:var(--yellow);text-align:center;color:var(--brown)}
+.cta h2{font-size:2.3rem}
+.cta .btn{background:var(--brown);color:#fff}
+footer{background:#2f1c12;color:#e9d9c7;padding:34px 6%;text-align:center}
+footer .brand{justify-content:center;margin-bottom:10px}
+footer a{color:var(--yellow)}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding:50px 6%}.hero h1{font-size:2.2rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="pinoy-latte-logo.png" alt="Pinoy Latte PH Logo" class="logo-img">
+    <div class="logo">Pinoy <span>Latte</span> PH</div>
+  </div>
+  <nav>
+    <a href="#product">Product</a>
+    <a href="#story">Our Story</a>
+    <a href="#sustainability">Sustainability</a>
+    <a href="#order">Order</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="badge">Filipino-Inspired Coffee</span>
+    <h1>Banana-Pandan Latte:<br><span>The Perfect Split in a Cup!</span></h1>
+    <p>A creamy, ready-to-drink latte made with banana, pandan, milk, and coffee. Sourced from local Calauag farmers and served in eco-friendly packaging.</p>
+    <a class="btn" href="#order">Try Pinoy Latte</a>
+    <a class="btn secondary" href="#story">Taste Our Story</a>
+  </div>
+  <div class="product-card">
+    <img src="pinoy-latte-product.jpg" alt="Pinoy Latte PH Banana-Pandan Latte" class="product-img">
+    <h2>Banana-Pandan Latte</h2>
+    <p>250 ml | Eco-friendly bottle</p>
+    <p class="price">₱80.00</p>
+    <p><strong>Free seeds included</strong> through the Grow Your Own Seedling Program.</p>
+  </div>
+</section>
+
+<section id="product">
+  <h2>Why You’ll Love It</h2>
+  <p>A unique Filipino-inspired coffee made for students, workers, young professionals, and coffee lovers in Calauag, Quezon.</p>
+  <div class="grid">
+    <div class="card"><h3>🍌 Local Banana</h3><p>Sweet, natural banana flavor sourced directly from local farmers.</p></div>
+    <div class="card"><h3>🌿 Fragrant Pandan</h3><p>Pandan adds a distinct aroma that makes every sip different from an ordinary latte.</p></div>
+    <div class="card"><h3>☕ Café-Quality Coffee</h3><p>A smooth, creamy milk-based coffee you can enjoy anywhere.</p></div>
+    <div class="card"><h3>🌱 Eco-Friendly Packaging</h3><p>Served in a 250 ml eco-friendly bottle with free seeds included.</p></div>
+  </div>
+</section>
+
+<section id="story" class="image-section story">
+  <div class="content">
+    <h2>Don’t Just Drink Coffee—Taste Our Story</h2>
+    <p>Pinoy Latte PH celebrates Filipino taste and identity by transforming Calauag’s homegrown bananas and pandan leaves into a modern café experience. Every bottle supports local farmers, promotes sustainable practices, and shares the story of our community.</p>
+    <p>With every purchase, you receive free seeds and simple planting instructions. Plant today, grow a legacy, and help protect the environment for the next generation.</p>
+  </div>
+</section>
+
+<section id="sustainability" class="image-section sustainability">
+  <div class="content">
+    <h2>Grow Your Own Seedling Program</h2>
+    <p>Each Banana-Pandan Latte comes with free seeds from local farmers. Plant them, care for them, and watch your small seed grow into something meaningful for the community and the environment.</p>
+    <div class="grid">
+      <div class="card"><h3>1. Enjoy Your Latte</h3><p>Sip, refresh, and enjoy a locally inspired coffee drink.</p></div>
+      <div class="card"><h3>2. Plant Your Seeds</h3><p>Use the free seeds and planting instructions included with your purchase.</p></div>
+      <div class="card"><h3>3. Leave a Legacy</h3><p>Help create a greener Calauag, one seedling at a time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="cta">
+  <h2>Try Pinoy Latte Today</h2>
+  <p>Banana-Pandan Latte | 250 ml | ₱80.00</p>
+  <p style="margin:18px 0 26px">Available through school canteens, pop-up booths, community events, and online orders.</p>
+  <a class="btn" href="https://forms.gle/BqUG9UWcigFFBe4N9">Order or Share Feedback</a>
+</section>
+
+<footer>
+  <div class="brand">
+    <img src="pinoy-latte-logo.png" alt="Pinoy Latte PH Logo" class="logo-img">
+    <div class="logo">Pinoy <span>Latte</span> PH</div>
+  </div>
+  <p>Banana-Pandan Latte: The Perfect Split in a Cup!</p>
+  <p>Calauag, Quezon | Follow us on Facebook, TikTok, and Instagram</p>
+  <p>© 2026 Pinoy Latte PH. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
