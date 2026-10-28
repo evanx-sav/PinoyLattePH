@@ -61,17 +61,99 @@ footer a{color:var(--yellow)}
 .order-social-links .social-btn:hover {transform: translateY(-3px);}
 .order-social-links .social-btn:focus-visible {outline: 3px solid var(--brown);outline-offset: 4px;}
 @media(max-width:850px){.hero{grid-template-columns:1fr;padding:50px 6%}.hero h1{font-size:2.2rem}}
+/* Responsive website header */
+.site-header {display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;gap: 16px;padding: 12px 6%;}
+.site-header .brand {gap: 10px;min-width: 0;}
+.site-header .logo-img {width: 64px;height: 64px;flex-shrink: 0;}
+.site-header .logo {font-size: 1.65rem;line-height: 1.2;}
+.site-nav {display: flex;align-items: center;flex-wrap: wrap;gap: 8px;}
+.site-header .site-nav a {display: block;margin: 0;padding: 12px 10px;border-radius: 8px;}
+.site-header .site-nav a:hover {background: rgba(255, 255, 255, 0.1);}
+.menu-toggle {display: none;align-items: center;justify-content: center;min-height: 44px;padding: 10px 12px;border: 1px solid rgba(255, 255, 255, 0.5);border-radius: 10px;
+  background: transparent;color: #fff;font-size: 1rem;font-weight: 700;cursor: pointer;}
+.site-header a:focus-visible,
+.menu-toggle:focus-visible {outline: 3px solid var(--yellow);outline-offset: 3px;}
+/* Keep section headings below the sticky header */
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+/* Phone and tablet layout */
+@media (max-width: 1000px) {
+  .site-header {
+    gap: 10px;
+    padding: 10px 4%;
+  }
+
+  .site-header .brand {
+    flex: 1;
+  }
+
+  .site-header .logo-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .site-header .logo {
+    font-size: clamp(1rem, 4.5vw, 1.4rem);
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    max-height: 65vh;
+    overflow-y: auto;
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-header .site-nav a {
+    padding: 14px 12px;
+  }
+
+  section[id] {
+    scroll-margin-top: 85px;
+  }
+}
 </style>
 </head>
 <body>
 
-<header>
+<header class="site-header">
   <div class="brand">
-    <img src="pinoy-latte-logo.png" alt="Pinoy Latte PH Logo" class="logo-img">
+    <img
+      src="pinoy-latte-logo.png"
+      alt="Pinoy Latte PH Logo"
+      class="logo-img"
+    >
     <div class="logo">Pinoy <span>Latte</span> PH</div>
   </div>
-  <nav>
+
+  <button
+    class="menu-toggle"
+    id="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="site-nav"
+  >
+    ☰ Menu
+  </button>
+
+  <nav id="site-nav" class="site-nav" aria-label="Main navigation">
     <a href="#product">Product</a>
+    <a href="#commercial">Commercial</a>
     <a href="#story">Our Story</a>
     <a href="#sustainability">Sustainability</a>
     <a href="#order">Order</a>
@@ -205,6 +287,55 @@ footer a{color:var(--yellow)}
 </p>
   <p>© 2026 Pinoy Latte PH. All rights reserved.</p>
 </footer>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const siteNav = document.getElementById("site-nav");
+  const mobileHeader = window.matchMedia("(max-width: 1000px)");
+
+  function setMenuOpen(isOpen) {
+    siteNav.classList.toggle("is-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.textContent = isOpen ? "✕ Close" : "☰ Menu";
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen =
+      menuToggle.getAttribute("aria-expanded") === "true";
+
+    setMenuOpen(!isOpen);
+  });
+
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (mobileHeader.matches) {
+        menuToggle.focus();
+        setMenuOpen(false);
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      menuToggle.getAttribute("aria-expanded") === "true"
+    ) {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+
+  mobileHeader.addEventListener("change", () => {
+    if (
+      mobileHeader.matches &&
+      siteNav.contains(document.activeElement)
+    ) {
+      menuToggle.focus();
+    }
+
+    setMenuOpen(false);
+  });
+</script>
 
 </body>
 </html>
